@@ -6,7 +6,6 @@
       <li><router-link :to="{ name: 'Preview' }"> Превью </router-link></li>
     </ul>
   </header>
-  <router-view />
 </template>
 
 <script setup></script>
@@ -22,6 +21,10 @@
   top: 0;
   border: 1px solid $clr-grey;
 
+  @media screen and (max-width: $tablet) {
+    padding: 24px;
+  }
+
   ul {
     display: flex;
     gap: 24px;
@@ -33,6 +36,10 @@
     line-height: 24px;
     letter-spacing: 0px;
     color: $clr-primary-grey;
+
+    @media screen and (max-width: $tablet) {
+      margin: 0 0 0 auto;
+    }
 
     a {
       text-decoration: none;
