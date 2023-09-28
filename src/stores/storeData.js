@@ -3,19 +3,15 @@ import { defineStore } from 'pinia'
 export const useStoreData = defineStore('storeData', {
   state: () => {
     return {
-      data: null,
       children: [],
       user: {
         name: '',
         age: ''
       },
-      saveStatus: false
+      saveData: null
     }
   },
   actions: {
-    addData(data) {
-      this.data = data
-    },
     addChild() {
       this.children.push({
         id: new Date().valueOf(),
@@ -27,13 +23,15 @@ export const useStoreData = defineStore('storeData', {
       this.children = this.children.filter((child) => child.id !== id)
     },
     save() {
-      this.saveStatus = true
+      this.saveData = JSON.parse(
+        JSON.stringify({
+          children: this.children,
+          user: this.user
+        })
+      )
     }
   },
   getters: {
-    getData(state) {
-      return state.data
-    },
     getChildren(state) {
       return state.children
     },

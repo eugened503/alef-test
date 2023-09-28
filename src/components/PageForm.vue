@@ -1,12 +1,7 @@
 <template>
   <form
     class="form"
-    @submit.prevent="
-      addData({
-        user,
-        children
-      })
-    "
+    @submit.prevent="save"
   >
     <p class="form__title">Персональные данные</p>
     <div class="form__user">
@@ -35,7 +30,7 @@
     <div class="form__children">
       <div class="form__children-header">
         <p class="form__title">Дети (макс. 5)</p>
-        <button type="button" class="form__button button-add" @click="addChild">
+        <button v-if="getChildren.length < 5" type="button" class="form__button button-add" @click="addChild">
           <img src="/images/btn-image.svg" alt="button-image" />
           <span>Добавить ребенка</span>
         </button>
@@ -77,7 +72,7 @@
 <script setup>
 import { useStoreData } from '@/stores/storeData'
 import { storeToRefs } from 'pinia'
-const { addData, addChild, deleteChild, save } = useStoreData()
+const { addChild, deleteChild, save } = useStoreData()
 const { getChildren, getUser } = storeToRefs(useStoreData())
 </script>
 
