@@ -8,16 +8,3 @@
   min-height: 100vh;
   background-color: $clr-white;
 }
-
-button {
-  display: block;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}

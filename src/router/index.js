@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Form from '../views/Form.vue'
-import Preview from '../views/Preview.vue'
+import Form from '@/views/Form.vue'
+import Preview from '@/views/Preview.vue'
 
 const routes = [
   {

@@ -19,7 +19,8 @@
   padding: 24px 92px;
   z-index: 1;
   top: 0;
-  border: 1px solid $clr-grey;
+  border-bottom: 1px solid $clr-grey;
+  background-color: $clr-white;
 
   @media screen and (max-width: $tablet) {
     padding: 24px;

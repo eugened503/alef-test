@@ -1,5 +1,9 @@
-<template></template>
+<template>
+  <PageForm></PageForm>
+</template>
 
-<script setup></script>
+<script setup>
+import PageForm from '@/components/PageForm.vue'
+</script>
 
 <style lang="scss" scoped></style>
