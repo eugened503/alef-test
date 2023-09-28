@@ -1,5 +1,8 @@
 <template>
-  <PageForm></PageForm>
+  <!-- <PageForm></PageForm> -->
+  <KeepAlive>
+    <component :is="PageForm" />
+  </KeepAlive>
 </template>
 
 <script setup>
