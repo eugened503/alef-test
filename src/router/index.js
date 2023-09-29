@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Form from '@/views/Form.vue'
-import Preview from '@/views/Preview.vue'
+import PageForm from '@/components/PageForm.vue'
+import PagePreview from '@/components/PagePreview.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Form',
-    component: Form
+    name: 'PageForm',
+    component: PageForm
   },
   {
     path: '/preview',
-    name: 'Preview',
-    component: Preview
+    name: 'PagePreview',
+    component: PagePreview
   }
 ]
 

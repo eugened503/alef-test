@@ -2,8 +2,8 @@
   <header class="header">
     <img src="/images/logo.svg" alt="logo" />
     <ul>
-      <li><router-link :to="{ name: 'Form' }"> Форма </router-link></li>
-      <li><router-link :to="{ name: 'Preview' }"> Превью </router-link></li>
+      <li><router-link :to="{ name: 'PageForm' }"> Форма </router-link></li>
+      <li><router-link :to="{ name: 'PagePreview' }"> Превью </router-link></li>
     </ul>
   </header>
 </template>
@@ -12,13 +12,10 @@
 
 <style lang="scss" scoped>
 .header {
-  position: fixed;
   display: flex;
   align-items: center;
   width: 100%;
   padding: 24px 92px;
-  z-index: 1;
-  top: 0;
   border-bottom: 1px solid $clr-grey;
   background-color: $clr-white;
 

@@ -1,72 +1,76 @@
 <template>
-  <form
-    class="form"
-    @submit.prevent="save"
-  >
-    <p class="form__title">Персональные данные</p>
-    <div class="form__user">
-      <div class="form__row">
-        <label for="userName">Имя</label>
-        <input
-          type="text"
-          placeholder="Введите имя"
-          v-model="getUser.name"
-          name="userName"
-          autocomplete="on"
-        />
-      </div>
+  <div class="container">
+    <form class="form container-body" @submit.prevent="save">
+      <p class="title">Персональные данные</p>
+      <div class="form__user">
+        <div class="form__row">
+          <label for="userName">Имя</label>
+          <input
+            type="text"
+            placeholder="Введите имя"
+            v-model="getUser.name"
+            name="userName"
+            autocomplete="on"
+          />
+        </div>
 
-      <div class="form__row">
-        <label for="userAge">Возраст</label>
-        <input
-          type="number"
-          placeholder="Введите возраст"
-          v-model="getUser.age"
-          name="userAge"
-          autocomplete="on"
-        />
-      </div>
-    </div>
-    <div class="form__children">
-      <div class="form__children-header">
-        <p class="form__title">Дети (макс. 5)</p>
-        <button v-if="getChildren.length < 5" type="button" class="form__button button-add" @click="addChild">
-          <img src="/images/btn-image.svg" alt="button-image" />
-          <span>Добавить ребенка</span>
-        </button>
-      </div>
-      <div class="form__children-body">
-        <div v-for="child in getChildren" :key="child.id" class="form__children-row">
-          <div class="form__row">
-            <label for="childName">Имя</label>
-            <input
-              type="text"
-              placeholder="Введите имя"
-              v-model="child.name"
-              name="childName"
-              autocomplete="on"
-            />
-          </div>
-          <div class="form__row">
-            <label for="childAge">Возраст</label>
-            <input
-              type="number"
-              placeholder="Введите возраст"
-              v-model="child.age"
-              name="childAge"
-              autocomplete="on"
-            />
-          </div>
-          <button type="button" class="form__button button-delete" @click="deleteChild(child.id)">
-            Удалить
-          </button>
+        <div class="form__row">
+          <label for="userAge">Возраст</label>
+          <input
+            type="number"
+            placeholder="Введите возраст"
+            v-model="getUser.age"
+            name="userAge"
+            autocomplete="on"
+          />
         </div>
       </div>
-      <button type="submit" class="form__button button-save" @click="save">
-        <span>Сохранить</span>
-      </button>
-    </div>
-  </form>
+      <div class="form__children">
+        <div class="form__header">
+          <p class="title">Дети (макс. 5)</p>
+          <button
+            v-if="getChildren.length < 5"
+            type="button"
+            class="form__button button-add"
+            @click="addChild"
+          >
+            <img src="/images/btn-image.svg" alt="button-image" />
+            <span>Добавить ребенка</span>
+          </button>
+        </div>
+        <div class="form__body">
+          <div v-for="child in getChildren" :key="child.id" class="form__children-row">
+            <div class="form__row">
+              <label for="childName">Имя</label>
+              <input
+                type="text"
+                placeholder="Введите имя"
+                v-model="child.name"
+                name="childName"
+                autocomplete="on"
+              />
+            </div>
+            <div class="form__row">
+              <label for="childAge">Возраст</label>
+              <input
+                type="number"
+                placeholder="Введите возраст"
+                v-model="child.age"
+                name="childAge"
+                autocomplete="on"
+              />
+            </div>
+            <button type="button" class="form__button button-delete" @click="deleteChild(child.id)">
+              Удалить
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="form__button button-save" @click="save">
+          <span>Сохранить</span>
+        </button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script setup>
@@ -78,20 +82,6 @@ const { getChildren, getUser } = storeToRefs(useStoreData())
 
 <style lang="scss" scoped>
 .form {
-  margin: 109px auto 0;
-  padding: 0 24px;
-  height: 100%;
-  max-width: 616px;
-
-  &__title {
-    font-family: Montserrat;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: left;
-  }
-
   &__user {
     margin: 20px 0 0;
     display: flex;
@@ -103,14 +93,14 @@ const { getChildren, getUser } = storeToRefs(useStoreData())
     margin: 33px 0 0;
   }
 
-  &__children-header {
+  &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 18px;
   }
 
-  &__children-body {
+  &__body {
     display: flex;
     flex-direction: column;
     gap: 10px;

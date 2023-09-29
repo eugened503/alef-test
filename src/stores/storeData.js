@@ -38,8 +38,14 @@ export const useStoreData = defineStore('storeData', {
     getUser(state) {
       return state.user
     },
-    getSaveStatus(state) {
-      return state.saveStatus
+    getSaveDataChildren(state) {
+      return state.saveData?.children
+    },
+    getSaveDataUser(state) {
+      return state.saveData?.user
+    },
+    getSaveData(state) {
+      return state.saveData
     }
   }
 })
